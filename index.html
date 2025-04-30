@@ -24,6 +24,20 @@
       font-weight: bold;
       letter-spacing: 1px;
     }
+    footer {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
+      padding: 1.5em;
+      text-align: center; /* Horizontal alignment */
+      font-size: 0.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      min-height: 80px;
+      
+      display: flex;          /* Enable flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center;     /* Center vertically */
+    }
     main {
       padding: 2em;
       max-width: 100%;
@@ -200,6 +214,8 @@
   <h1>Playdots Store</h1>
 </header>
 
+
+
 <main>
   <p>Currency: <span id="currencySymbol">Rp</span></p>
 
@@ -231,6 +247,12 @@
     <button onclick="saveNotes()">Save Notes</button>
   </section>
 </main>
+
+<script>
+  window.onload = function() {
+    loadNotes();
+  };
+</script>
 
 <button class="admin-btn" onclick="showAdminPassword()">Admin</button>
 <div class="overlay" id="overlay"></div>
@@ -268,6 +290,10 @@
     <button onclick="hidePasswordPrompt()">Cancel</button>
   </div>
 </div>
+<footer>
+  <p>© 2025 PlayDots-store. All rights reserved.</p>
+  <p><a href="mailto:ilikepython123@gmail.com" style="color:#fff; padding: 10px;">Contact Support</a></p>
+</footer>
 <script>
   // Firebase configuration
   const firebaseConfig = {
@@ -422,11 +448,33 @@
 
 
   function saveNotes() {
-    cashierNotes = document.getElementById('cashierNotes').value;
-    localStorage.setItem('cashierNotes', cashierNotes);
-    alert('Notes saved!');
+    const notes = document.getElementById('cashierNotes').value;
+    database.ref('cashierNotes').set(notes)
+      .then(() => {
+        alert('Notes saved to Firebase!');
+      })
+      .catch((error) => {
+        console.error('Error saving notes:', error);
+        alert('Failed to save notes.');
+      });
   }
 
+  function loadNotes() {
+    database.ref('cashierNotes').once('value')
+      .then(snapshot => {
+        const notes = snapshot.val();
+        if (notes) {
+          document.getElementById('cashierNotes').value = notes;
+        } else {
+          document.getElementById('cashierNotes').value = ''; // If no notes, clear it
+        }
+      })
+      .catch(error => {
+        console.error('Error loading notes:', error);
+      });
+  }
+  
+  
   function renderCart() {
     const cont = document.getElementById('cartContainer');
     cont.innerHTML = ''; // Clear current cart items
