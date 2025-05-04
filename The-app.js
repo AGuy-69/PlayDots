@@ -60,11 +60,10 @@
   "Bitch you're not an admin are you?"
   ];
   
-  function checkLoginInfo() {
+  function checkLoginInfo(ThenRun) {
     if (allowedEmails.includes(userInfo.email)) {
-      console.log("Opening AdminProducts");
-      document.getElementById('adminPanel').style.display = 'block';
-      renderAdminProducts();
+      console.log("Opening {ThenRun}");
+      Thenrun();
     } else {
       const randomIndex = Math.floor(Math.random() * deniedMessages.length);
       alert(deniedMessages[randomIndex]);
@@ -160,6 +159,7 @@
   function renderAdminProducts() {
     const adminProducts = document.getElementById('adminProducts');
     adminProducts.innerHTML = ''; // Clear current products in admin panel
+    document.getElementById('adminPanel').style.display = 'block'; // Shows admin panel
 
     // Fetch the products from Firebase
     const productsRef = database.ref('products');
