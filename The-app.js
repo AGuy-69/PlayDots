@@ -60,15 +60,16 @@
   "Bitch you're not an admin are you?"
   ];
   
-  function checkLoginInfo(Thenrun) {
+  function checkLoginInfo(ThenRun) {
     if (allowedEmails.includes(userInfo.email)) {
-      console.log("Opening {ThenRun}");
-      Thenrun();
+      console.log("Opening:", ThenRun.name); // logs function name properly
+      ThenRun(); // call the function
     } else {
       const randomIndex = Math.floor(Math.random() * deniedMessages.length);
       alert(deniedMessages[randomIndex]);
     }
   }
+
   
 
   function saveProduct() {
