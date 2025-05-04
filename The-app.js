@@ -63,7 +63,7 @@
   function checkLoginInfo(ThenRun) {
     if (allowedEmails.includes(userInfo.email)) {
       console.log("Opening {ThenRun}");
-      Thenrun();
+      ThenRun();
     } else {
       const randomIndex = Math.floor(Math.random() * deniedMessages.length);
       alert(deniedMessages[randomIndex]);
