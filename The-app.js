@@ -60,10 +60,10 @@
   "Bitch you're not an admin are you?"
   ];
   
-  function checkLoginInfo(ThenRun) {
+  function checkLoginInfo(Thenrun) {
     if (allowedEmails.includes(userInfo.email)) {
       console.log("Opening {ThenRun}");
-      ThenRun();
+      Thenrun();
     } else {
       const randomIndex = Math.floor(Math.random() * deniedMessages.length);
       alert(deniedMessages[randomIndex]);
