@@ -142,7 +142,7 @@
         d.innerHTML = `
           <img src="${product.image}" alt="${product.name}" />
           <h4>${product.name}</h4>
-          <p>Rp ${product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
+          <p>Rp ${product.price.toFixed(0).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
           <button onclick="addToCart('${id}')">Add to Cart</button>
         `;
         cont.appendChild(d);
