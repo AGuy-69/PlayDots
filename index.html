@@ -4,7 +4,7 @@
   <link rel="icon" href="Icon.ico" sizes="16x16" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PlayDots Store</title>
+  <title>Playdots Store</title>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
@@ -207,12 +207,57 @@
       max-width: 180px; /* Set a max-width to revent cards from stretching too much */
       transition: transform 0.2s ease;
     }
+
+    #Qris {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    
+    #QrisBox {
+      background-color: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 300px;   /* wider */
+      height: 500px;
+      width: 90%;
+      font-size: 18px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+    
+    /* Image styling */
+    #QrisBox img {
+      width: auto;
+      max-width: 100%;
+      height: 300px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 50px;
+      margin-top: 50px;
+    }
+    
+    /* Button styling */
+    #QrisBox button {
+      margin-top: 50px;
+      padding: 10px 24px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }    
     
   </style>
 </head>
 <body>
 <header>
-  <h1>PlayDots Store</h1>
+  <h1>Playdots Store</h1>
 </header>
 
 
@@ -245,8 +290,20 @@
   <section>
     <h3>Cashier Notes</h3>
     <textarea id="cashierNotes" rows="4" placeholder="Enter notes here..."></textarea>
-    <button onclick="checkLoginInfo(saveNotes)">Save Notes</button>
+    <button onclick="saveNotes()">Save Notes</button>
   </section>
+
+  <div id="Qris" style="display: none; align-items: center; justify-content: center; gap: 10px;">
+    <div id="QrisBox">
+      <div>
+        <img id="QrisImage" src="https://mfiles.alphacoders.com/954/954550.jpg" alt="Alert Image"/>
+      </div>
+      <div id="Button">
+        <button onclick="closeQris()">Close</button>
+      </div>
+    </div>
+  </div>
+  
 </main>
 
 <script>
@@ -255,7 +312,7 @@
   };
 </script>
 
-<button class="admin-btn" onclick="checkLoginInfo(renderAdminProducts)">Admin</button>
+<button class="admin-btn" onclick="checkLoginInfo()">Admin</button>
 <div class="overlay" id="overlay"></div>
 
 <div class="admin-panel" id="adminPanel">
