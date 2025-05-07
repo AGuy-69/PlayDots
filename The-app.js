@@ -60,16 +60,16 @@
   "Bitch you're not an admin are you?"
   ];
   
-  function checkLoginInfo(ThenRun) {
+  function checkLoginInfo() {
     if (allowedEmails.includes(userInfo.email)) {
-      console.log("Opening:", ThenRun.name); // logs function name properly
-      ThenRun(); // call the function
+      console.log("Opening AdminProducts");
+      document.getElementById('adminPanel').style.display = 'block';
+      renderAdminProducts();
     } else {
       const randomIndex = Math.floor(Math.random() * deniedMessages.length);
       alert(deniedMessages[randomIndex]);
     }
   }
-
   
 
   function saveProduct() {
@@ -142,7 +142,7 @@
         d.innerHTML = `
           <img src="${product.image}" alt="${product.name}" />
           <h4>${product.name}</h4>
-          <p>Rp ${product.price.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p>Rp ${product.price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</p>
           <button onclick="addToCart('${id}')">Add to Cart</button>
         `;
         cont.appendChild(d);
@@ -160,7 +160,6 @@
   function renderAdminProducts() {
     const adminProducts = document.getElementById('adminProducts');
     adminProducts.innerHTML = ''; // Clear current products in admin panel
-    document.getElementById('adminPanel').style.display = 'block'; // Shows admin panel
 
     // Fetch the products from Firebase
     const productsRef = database.ref('products');
@@ -309,8 +308,11 @@
   }
 
   function checkout(){
-    alert('Total due: Rp ' + document.getElementById('finalTotalDisplay').innerText);
-    cart=[]; renderCart();
+    document.getElementById('Qris').style.display = 'flex';
+  }
+
+  function closeQris(){
+    document.getElementById('Qris').style.display = 'none';
   }
 
   function calculateChange() {
