@@ -60,17 +60,19 @@
   "Bitch you're not an admin are you?"
   ];
   
-  function checkLoginInfo() {
+  function checkLoginInfo(callback) { 
     if (allowedEmails.includes(userInfo.email)) {
-      console.log("Opening AdminProducts");
-      document.getElementById('adminPanel').style.display = 'block';
-      renderAdminProducts();
+      callback(); // call the passed-in function
     } else {
       const randomIndex = Math.floor(Math.random() * deniedMessages.length);
       alert(deniedMessages[randomIndex]);
     }
   }
-  
+
+  function openAdmin() {
+    document.getElementById('adminPanel').style.display = 'block';
+    renderAdminProducts(); // Render admin products list when admin logs in
+  }
 
   function saveProduct() {
     const name = document.getElementById('newName').value;
