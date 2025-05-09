@@ -317,7 +317,7 @@
   <section>
     <h3>Cashier Notes</h3>
     <textarea id="cashierNotes" rows="4" placeholder="Enter notes here..."></textarea>
-    <button onclick="saveNotes()">Save Notes</button>
+    <button onclick="checkLoginInfo(saveNotes)">Save Notes</button>
   </section>
 
   <div id="Qris" style="display: none; align-items: center; justify-content: center; gap: 10px;">
@@ -339,7 +339,7 @@
   };
 </script>
 
-<button class="admin-btn" onclick="checkLoginInfo()">Admin</button>
+<button class="admin-btn" onclick="checkLoginInfo(openAdmin)">Admin</button>
 <div class="overlay" id="overlay"></div>
 
 <div class="admin-panel" id="adminPanel">
