@@ -138,7 +138,7 @@
     if (productsData) {
       for (const id in productsData) {
         const product = productsData[id];
-        const priceFormatted = Number(product.price).toLocaleString('id-ID', {
+        const priceFormatted = product.price.toLocaleString('id-ID', {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         });
