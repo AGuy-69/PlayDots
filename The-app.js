@@ -144,6 +144,7 @@
         d.innerHTML = `
           <img src="${product.image}" alt="${product.name}" />
           <h4>${product.name}</h4>
+          console.log('Price value:', product.price, 'Type:', typeof product.price);
           <p>Rp {Number(product.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
           <button onclick="addToCart('${id}')">Add to Cart</button>
         `;
