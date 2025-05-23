@@ -145,6 +145,7 @@
 
         const d = document.createElement('div');
         console.log('Price value:', product.price, 'Type:', typeof product.price);
+        console.log(priceFormatted);
         d.className = 'product';
         d.innerHTML = `
           <img src="${product.image}" alt="${product.name}" />
