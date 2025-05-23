@@ -145,7 +145,7 @@
         d.innerHTML = `
           <img src="${product.image}" alt="${product.name}" />
           <h4>${product.name}</h4>
-          <p>Rp {Number(product.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p>Rp ${Number(product.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
           <button onclick="addToCart('${id}')">Add to Cart</button>
         `;
         cont.appendChild(d);
