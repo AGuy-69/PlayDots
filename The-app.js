@@ -138,6 +138,10 @@
     if (productsData) {
       for (const id in productsData) {
         const product = productsData[id];
+        const priceFormatted = Number(product.price).toLocaleString('id-ID', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
 
         const d = document.createElement('div');
         console.log('Price value:', product.price, 'Type:', typeof product.price);
@@ -145,7 +149,7 @@
         d.innerHTML = `
           <img src="${product.image}" alt="${product.name}" />
           <h4>${product.name}</h4>
-          <p>Rp ${Number(product.price).toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+          <p>Rp ${priceFormatted}</p>
           <button onclick="addToCart('${id}')">Add to Cart</button>
         `;
         cont.appendChild(d);
