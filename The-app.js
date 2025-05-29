@@ -276,6 +276,9 @@
     document.getElementById('feeDisplay').innerText = fee.toFixed(2);
     const final = sub*(1 - discount/100) + fee;
     document.getElementById('finalTotalDisplay').innerText = 'Rp ' + final.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    
+    const billingBox = document.querySelector('.Billing');
+    billingBox.style.display = subtotal > 0 ? 'flex' : 'none';
   }
 
   function addToCart(productId) {
