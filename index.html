@@ -319,8 +319,7 @@
   </section>
 
   <section>
-    <h2>Your Cart</h2>
-    <div class="cart" id="cartContainer"></div>
+    <div class="cart" id="cartContainer"><h2>Your Cart</h2></div>
     <div class="Billing">
       <p>Subtotal: <span id="subtotalDisplay">0.00</span></p>
       <p>Discount: <span id="discountDisplay">0%</span></p>
@@ -390,15 +389,6 @@
   </div>
 
   <button style="margin-top:1em;background:#e74c3c;" onclick="deleteAllData()">Delete All Data</button>
-</div>
-
-<div id="pwPrompt" class="overlay">
-  <div style="background:#fff;padding:1em;margin:15% auto;max-width:300px;">
-    <p>Enter Admin Passcode:</p>
-    <input type="password" id="adminPassInput" placeholder="••••••" style="width: 205px;"/>
-    <button onclick="checkAdminPass()">Enter</button>
-    <button onclick="hidePasswordPrompt()">Cancel</button>
-  </div>
 </div>
 <footer>
   <p>© 2025 PlayDots-store. All rights reserved.</p>
