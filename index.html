@@ -102,7 +102,7 @@
       text-align: left;
 
       /* Display None*/
-      display: none;
+      display: flex;
     }
     .cart-text {
       display: none;
@@ -253,9 +253,16 @@
       max-width: 180px; /* Set a max-width to revent cards from stretching too much */
       transition: transform 0.2s ease;
     }
-
-    .billcalc {
+    .billing-container {
       display: none;
+      gap: 24px; /* space between Billing and billcalc */
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 24px;
+      flex-wrap: wrap; /* optional: makes it mobile friendly */
+    }
+    .billcalc {
+      display: flex;
       flex-direction: column;
       align-items: flex-start; /* LEFT ALIGN CONTENT */
       gap: 12px;
@@ -280,8 +287,10 @@
       border-radius: 6px;
       cursor: pointer;
     }
-
-
+    .Billing, .billcalc {
+      flex: 1;
+      max-width: 360px;
+    }
     #Qris {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -351,21 +360,23 @@
   <section>
     <div class="cart-text"><h2>Your Cart</h2></div>
     <div class="cart" id="cartContainer"></div>
-    <div class="Billing">
-      <p>Subtotal: <span id="subtotalDisplay">0.00</span></p>
-      <p>Discount: <span id="discountDisplay">0%</span></p>
-      <p>Fee: <span id="feeDisplay">0.00</span></p>
-      <h3>Final Total: <span id="finalTotalDisplay">0.00</span></h3>
-      <button onclick="checkout()">Checkout</button>
-    </div>
   </section>
 
   <section>
-    <div class="billcalc">
-      <h3>Enter Bill to Calculate Change</h3>
-      <input type="number" id="billAmount" placeholder="Enter bill amount"/>
-      <button onclick="calculateChange()">Calculate Change</button>
-      <p>Change: <span id="changeDisplay">0.00</span></p>
+    <div class="billing-container">
+      <div class="Billing">
+        <p>Subtotal: <span id="subtotalDisplay">0.00</span></p>
+          <p>Discount: <span id="discountDisplay">0%</span></p>
+          <p>Fee: <span id="feeDisplay">0.00</span></p>
+          <h3>Final Total: <span id="finalTotalDisplay">0.00</span></h3>
+          <button onclick="checkout()">Checkout</button>
+      </div>
+      <div class="billcalc">
+        <h3>Enter Cash to Calculate Change</h3>
+        <input type="number" id="billAmount" placeholder="e.g. 50000" />
+        <button onclick="calculateChange()">Calculate Change</button>
+        <p>Change: <strong><span id="changeDisplay">Rp 0.00</span></strong></p>
+      </div>
     </div>
   </section>
 
