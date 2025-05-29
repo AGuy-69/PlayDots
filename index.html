@@ -103,6 +103,9 @@
       /* Align text/content to the left */
       align-items: flex-start;
       text-align: left;
+
+      /* Display None*/
+      display: none;
     }
 
     .product:hover, .cart-item:hover {
@@ -319,7 +322,8 @@
   </section>
 
   <section>
-    <div class="cart" id="cartContainer"><h2>Your Cart</h2></div>
+    <h2>Your Cart</h2>
+    <div class="cart" id="cartContainer"></div>
     <div class="Billing">
       <p>Subtotal: <span id="subtotalDisplay">0.00</span></p>
       <p>Discount: <span id="discountDisplay">0%</span></p>
