@@ -277,12 +277,10 @@
     const final = sub*(1 - discount/100) + fee;
     document.getElementById('finalTotalDisplay').innerText = 'Rp ' + final.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     
-    const billingBox = document.querySelector('.Billing');
+    const billingBox = document.querySelector('.billing-container');
     const carttext = document.querySelector('.cart-text');
-    const calcbill = document.querySelector('.billcalc');
     billingBox.style.display = sub > 0 ? 'flex' : 'none';
     carttext.style.display = sub > 0 ? 'flex' : 'none';
-    calcbill.style.display = sub > 0 ? 'flex' : 'none';
   }
 
   function addToCart(productId) {
