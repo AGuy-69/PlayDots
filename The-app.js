@@ -278,7 +278,7 @@
     document.getElementById('finalTotalDisplay').innerText = 'Rp ' + final.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     
     const billingBox = document.querySelector('.Billing');
-    billingBox.style.display = subtotal > 0 ? 'flex' : 'none';
+    billingBox.style.display = sub > 0 ? 'flex' : 'none';
   }
 
   function addToCart(productId) {
