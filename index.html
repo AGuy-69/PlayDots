@@ -61,7 +61,7 @@
       gap: 1.5em;
       margin-top: 1em;
     }
-    .product, .cart-item {
+    .product, .cart-item, .Billing {
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
@@ -300,11 +300,13 @@
   <section>
     <h2>Your Cart</h2>
     <div class="cart" id="cartContainer"></div>
-    <p>Subtotal: <span id="subtotalDisplay">0.00</span></p>
-    <p>Discount: <span id="discountDisplay">0%</span></p>
-    <p>Fee: <span id="feeDisplay">0.00</span></p>
-    <h3>Final Total: <span id="finalTotalDisplay">0.00</span></h3>
-    <button onclick="checkout()">Checkout</button>
+    <div class="Billing">
+      <p>Subtotal: <span id="subtotalDisplay">0.00</span></p>
+      <p>Discount: <span id="discountDisplay">0%</span></p>
+      <p>Fee: <span id="feeDisplay">0.00</span></p>
+      <h3>Final Total: <span id="finalTotalDisplay">0.00</span></h3>
+      <button onclick="checkout()">Checkout</button>
+    </div>
   </section>
 
   <section>
