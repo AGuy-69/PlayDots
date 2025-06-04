@@ -68,21 +68,6 @@
       alert(deniedMessages[randomIndex]);
     }
   }
-                                                             
-  function Cashier(callback) { 
-    if (cashierEmails.includes(userInfo.email)) {
-      callback(); // call the passed-in function
-    } else {
-      const randomIndex = Math.floor(Math.random() * deniedMessages.length);
-      alert(deniedMessages[randomIndex]);
-    }
-  }
-                                                             
-  function EnableNotes() {
-    documenr.getElementById('notes').style.display = 'block';
-  }
-                                                             
-  Cashier(EnableNotes)
 
   function openAdmin() {
     document.getElementById('adminPanel').style.display = 'block';
