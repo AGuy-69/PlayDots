@@ -275,6 +275,9 @@
       flex: 1;
       max-width: 360px;
     }
+    .notes {
+      display: none;
+    }
     #Qris {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -365,9 +368,11 @@
   </section>
 
   <section>
-    <h3>Cashier Notes</h3>
-    <textarea id="cashierNotes" rows="4" placeholder="Enter notes here..."></textarea>
-    <button onclick="checkLoginInfo(saveNotes)">Save Notes</button>
+    <div class="notes">
+      <h3>Cashier Notes</h3>
+      <textarea id="cashierNotes" rows="4" placeholder="Enter notes here..."></textarea>
+      <button onclick="Cashier(saveNotes)">Save Notes</button>
+    </div>
   </section>
 
   <div id="Qris" style="display: none; align-items: center; justify-content: center; gap: 10px;">
