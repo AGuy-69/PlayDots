@@ -3,6 +3,7 @@
   const app = firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
   const provider = new firebase.auth.GoogleAuthProvider();
+  
 
   firebase.auth().signInWithPopup(provider)
   .then((result) => {
@@ -15,11 +16,10 @@
   //Fetches admin users
   let userInfo = null;
   let allowedEmails = [];
-  fetch("Admins.json")
-  .then(res => res.json())
-  .then(data => {
-    allowedEmails = data;
-    console.log("✅ Allowed email list loaded:", allowedEmails);
+  let cashierEmails = [];
+  fetch("Admins.json").then(res => res.json()).then(data => {allowedEmails = data; console.log("✅ Allowed email list loaded:", allowedEmails);
+  fetch("Cashier.json").then(res => res.json()).then(data => {cashierEmails = data; console.log("✅ Cashier email list loaded:", cashierEmails);
+  
 
     // Check login only after email list is loaded
     firebase.auth().onAuthStateChanged((user) => {
@@ -68,6 +68,21 @@
       alert(deniedMessages[randomIndex]);
     }
   }
+                                                             
+  function Cashier(callback) { 
+    if (cashierEmails.includes(userInfo.email)) {
+      callback(); // call the passed-in function
+    } else {
+      const randomIndex = Math.floor(Math.random() * deniedMessages.length);
+      alert(deniedMessages[randomIndex]);
+    }
+  }
+                                                             
+  function EnableNotes() {
+    documenr.getElementById('notes').style.display = 'block';
+  }
+                                                             
+  Cashier(EnableNotes)
 
   function openAdmin() {
     document.getElementById('adminPanel').style.display = 'block';
