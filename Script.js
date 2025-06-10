@@ -3,6 +3,7 @@
   const app = firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
   const provider = new firebase.auth.GoogleAuthProvider();
+  console.log("script loaded")
   
 
   firebase.auth().signInWithPopup(provider)
