@@ -386,12 +386,6 @@
   
 </main>
 
-<script>
-  window.onload = function() {
-    loadNotes();
-  };
-</script>
-
 <button class="admin-btn" onclick="checkLoginInfo(openAdmin)">Admin</button>
 <div class="overlay" id="overlay"></div>
 
@@ -427,5 +421,11 @@
 </footer>
 <script src="firebase-config.js"></script>
 <script src="The-app.js"></script>
+  
+<script>
+window.onload = function() {
+  loadNotes();
+};
+</script>
 </body>
 </html>
