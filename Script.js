@@ -19,7 +19,6 @@
   let allowedEmails = [];
   let cashierEmails = [];
   fetch("Admins.json").then(res => res.json()).then(data => {allowedEmails = data; console.log("✅ Allowed email list loaded:", allowedEmails);
-  fetch("Cashier.json").then(res => res.json()).then(data => {cashierEmails = data; console.log("✅ Cashier email list loaded:", cashierEmails);
   
 
     // Check login only after email list is loaded
