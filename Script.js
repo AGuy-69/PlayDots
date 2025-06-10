@@ -129,41 +129,41 @@
   }
   
   async function renderProducts() {
-  const cont = document.getElementById('productsContainer');
-  cont.innerHTML = ''; // Clear previous products
+    const cont = document.getElementById('productsContainer');
+    cont.innerHTML = ''; // Clear previous products
 
-  try {
-    const snapshot = await firebase.database().ref('products').once('value');
-    const productsData = snapshot.val();
+    try {
+      const snapshot = await firebase.database().ref('products').once('value');
+      const productsData = snapshot.val();
 
-    if (productsData) {
-      for (const id in productsData) {
-        const product = productsData[id];
-        const priceFormatted = product.price.toLocaleString('id-ID', {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
-        });
+      if (productsData) {
+        for (const id in productsData) {
+          const product = productsData[id];
+          const priceFormatted = product.price.toLocaleString('id-ID', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
 
-        const d = document.createElement('div');
-        console.log('Price value:', product.price, 'Type:', typeof product.price);
-        console.log(priceFormatted);
-        d.className = 'product';
-        d.innerHTML = `
-          <img src="${product.image}" alt="${product.name}" />
-          <h4>${product.name}</h4>
-          <p>Rp ${priceFormatted}</p>
-          <button onclick="addToCart('${id}')">Add to Cart</button>
-        `;
-        cont.appendChild(d);
+          const d = document.createElement('div');
+          console.log('Price value:', product.price, 'Type:', typeof product.price);
+          console.log(priceFormatted);
+          d.className = 'product';
+          d.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" />
+            <h4>${product.name}</h4>
+            <p>Rp ${priceFormatted}</p>
+            <button onclick="addToCart('${id}')">Add to Cart</button>
+          `;
+          cont.appendChild(d);
+        }
+      } else {
+        cont.innerHTML = '<p>No products available.</p>';
       }
-    } else {
-      cont.innerHTML = '<p>No products available.</p>';
+    } catch (error) {
+      console.error('Error fetching products:', error);
+      cont.innerHTML = '<p>Error loading products.</p>';
     }
-  } catch (error) {
-    console.error('Error fetching products:', error);
-    cont.innerHTML = '<p>Error loading products.</p>';
   }
-}
 
   
   function renderAdminProducts() {
