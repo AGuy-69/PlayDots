@@ -108,7 +108,6 @@
   let cashierNotes = localStorage.getItem('cashierNotes') || '';
 
   // Load cashier notes
-  document.getElementById('cashierNotes').value = cashierNotes;
   async function loadProductsFromFirebase() {
     const snapshot = await firebase.database().ref('products').once('value');
     const data = snapshot.val();
